@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model VideoJob {
+  id         String   @id @default(cuid())
+  sourceType String
+  sourceName String
+  youtubeUrl String?
+  sourcePath String?
+  status     String
+  transcript String?
+  clips      Json?
+  createdAt  DateTime @default(now())
+}
